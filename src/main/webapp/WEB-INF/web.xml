@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>TesteDeCatalogo</display-name>
+
+    <!-- Welcome File -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Mapeamento do Servlet de Listagem/Busca -->
+    <servlet>
+        <servlet-name>ListarItensServlet</servlet-name>
+        <servlet-class>com.jin.catalogo.servlet.ListarItensServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListarItensServlet</servlet-name>
+        <url-pattern>/itens</url-pattern>
+    </servlet-mapping>
+
+    <!-- Mapeamento do Servlet de Cadastro -->
+    <servlet>
+        <servlet-name>CadastrarItemServlet</servlet-name>
+        <servlet-class>com.jin.catalogo.servlet.CadastrarItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CadastrarItemServlet</servlet-name>
+        <url-pattern>/cadastrar</url-pattern>
+    </servlet-mapping>
+
+    <!-- Mapeamento do Servlet de Detalhes -->
+    <servlet>
+        <servlet-name>DetalhesItemServlet</servlet-name>
+        <servlet-class>com.jin.catalogo.servlet.DetalhesItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetalhesItemServlet</servlet-name>
+        <url-pattern>/detalhes</url-pattern>
+    </servlet-mapping>
+
+    <!-- Mapeamento do Servlet de Edição -->
+    <servlet>
+        <servlet-name>EditarItemServlet</servlet-name>
+        <servlet-class>com.jin.catalogo.servlet.EditarItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditarItemServlet</servlet-name>
+        <url-pattern>/editar</url-pattern>
+    </servlet-mapping>
+
+    <!-- Mapeamento do Servlet de Remoção -->
+    <servlet>
+        <servlet-name>RemoverItemServlet</servlet-name>
+        <servlet-class>com.jin.catalogo.servlet.RemoverItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoverItemServlet</servlet-name>
+        <url-pattern>/excluir</url-pattern>
+    </servlet-mapping>
+
+    <!-- Configuração de codificação UTF-8 para requisições POST (opcional, mas boa prática) -->
+    <!-- Para usar o filtro, precisamos criar a classe com.jin.catalogo.filter.CharacterEncodingFilter -->
+    <!--
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>com.jin.catalogo.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    -->
+
+</web-app>
+<!--
+Função do arquivo:
+O web.xml é o descritor de implantação do aplicativo web. Ele define como o servidor (Tomcat) deve tratar as requisições.
+Aqui, mapeamos cada Servlet para sua respectiva URL (/itens, /cadastrar, etc.) e definimos o index.jsp como a página inicial.
+O filtro de codificação foi removido para simplificar, já que a codificação está sendo tratada nos Servlets.
+-->
