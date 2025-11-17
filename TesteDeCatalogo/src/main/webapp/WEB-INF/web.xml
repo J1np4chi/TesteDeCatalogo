@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>TesteDeCatalogo</display-name>
+
+    <!-- Welcome file -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- JSTL Configuration (Optional for JSTL 2.0, but good practice) -->
+    <jsp-config>
+        <taglib>
+            <taglib-uri>jakarta.tags.core</taglib-uri>
+            <taglib-location>/WEB-INF/c.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+    <!-- Mapeamento dos Servlets -->
+    <servlet>
+        <servlet-name>ListarItensServlet</servlet-name>
+        <servlet-class>br.com.catalogo.servlet.ListarItensServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListarItensServlet</servlet-name>
+        <url-pattern>/listar</url-pattern>
+        <url-pattern>/buscar</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CadastrarItemServlet</servlet-name>
+        <servlet-class>br.com.catalogo.servlet.CadastrarItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CadastrarItemServlet</servlet-name>
+        <url-pattern>/cadastro</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DetalhesItemServlet</servlet-name>
+        <servlet-class>br.com.catalogo.servlet.DetalhesItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetalhesItemServlet</servlet-name>
+        <url-pattern>/detalhes</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditarItemServlet</servlet-name>
+        <servlet-class>br.com.catalogo.servlet.EditarItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditarItemServlet</servlet-name>
+        <url-pattern>/editar</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoverItemServlet</servlet-name>
+        <servlet-class>br.com.catalogo.servlet.RemoverItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoverItemServlet</servlet-name>
+        <url-pattern>/remover</url-pattern>
+    </servlet-mapping>
+
+</web-app>
